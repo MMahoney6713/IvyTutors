@@ -16,21 +16,6 @@ import { Topbar, Footer } from './components';
 
 const Main = ({ logout, children, bgcolor = 'transparent' }) => {
   const theme = useTheme();
-  // const isMd = useMediaQuery(theme.breakpoints.up('md'), {
-  //   defaultMatches: true,
-  // });
-
-  // const [openSidebar, setOpenSidebar] = useState(false);
-
-  // const handleSidebarOpen = () => {
-  //   setOpenSidebar(true);
-  // };
-
-  // const handleSidebarClose = () => {
-  //   setOpenSidebar(false);
-  // };
-
-  // const open = isMd ? false : openSidebar;
 
   const trigger = useScrollTrigger({
     disableHysteresis: true,
@@ -40,9 +25,6 @@ const Main = ({ logout, children, bgcolor = 'transparent' }) => {
   return (
     <Box>
       <Box bgcolor={bgcolor} position={'relative'} zIndex={theme.zIndex.appBar}>
-        {/* <Container paddingTop={'8px !important'} paddingBottom={'0 !important'}>
-          <TopNav colorInvert={colorInvert} />
-        </Container> */}
       </Box>
       <AppBar
         position={'sticky'}
@@ -53,19 +35,10 @@ const Main = ({ logout, children, bgcolor = 'transparent' }) => {
         elevation={trigger ? 1 : 0}
       >
         <Container paddingY={1}>
-          <Topbar logout={logout}
-            // onSidebarOpen={handleSidebarOpen}
-            // pages={pages}
-            // colorInvert={trigger ? false : colorInvert}
-          />
+          <Topbar logout={logout} />
         </Container>
       </AppBar>
-      {/* <Sidebar
-        onClose={handleSidebarClose}
-        open={open}
-        variant="temporary"
-        pages={pages}
-      /> */}
+      
       <main>
         {children}
         <Divider />

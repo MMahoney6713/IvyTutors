@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react';
-// import { Modal } from './../../components';
 import WeeklyCalendar from '../WeeklyCalendar';
 
 

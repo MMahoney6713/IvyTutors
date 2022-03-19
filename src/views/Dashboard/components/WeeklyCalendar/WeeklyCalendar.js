@@ -4,22 +4,17 @@ import { DataGrid } from '@mui/x-data-grid';
 
 import UserContext from 'auth/UserContext';
 import IvyTutorsApi from 'api/api';
-
-
 import _ from 'lodash';
-// import { Modal } from './../../components';
+
 const axios = require('axios');
 
 const { rowInitialState, timeToIdMap } = require('./rowSetup');
 
-// const headers = { Authorization: `Bearer ${IvyTutorsApi.token}` };
 const BASE_URL = process.env.REACT_APP_BASE_URL ? `${process.env.REACT_APP_BASE_URL}/availability` : 'http://localhost:3001/availability';
-// const BASE_URL = 'http://localhost:3001/availability';
 
 const WeeklyCalendar = () => {
 
   const getStartOfWeek = (date) => {
-    // console.log(`start of week date is: ${date}`);
     let newDate = date;
     let dayOfWeek = newDate.getDay();
     let dateAtStart = newDate.getDate() - dayOfWeek + (dayOfWeek === 0 ? -6 : 1);
@@ -103,8 +98,6 @@ const WeeklyCalendar = () => {
     // into '2022-03-9 13:00:00-08' for Postgres query.
     let timeStringWithOffset = `${time.getFullYear()}-${time.getMonth()+1}-${time.getDate()} ${time.getHours()}:${time.getMinutes()}:00-${time.getTimezoneOffset()/60}`;
     
-    console.log(time);
-
     try {
       let availabilityRes;
       if (valToSet) {

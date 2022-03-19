@@ -1,14 +1,11 @@
 import React, { useEffect, useContext } from 'react';
-// import { alpha, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
-// import DatePicker from '@mui/lab/DatePicker';
 import StaticDatePicker from '@mui/lab/StaticDatePicker';
-// import StaticDateTimePicker from '@mui/lab/StaticDateTimePicker';
 import TimePicker from '@mui/lab/TimePicker';
 import TextField from '@mui/material/TextField';
 
@@ -40,9 +37,6 @@ const DateTimePicker = () => {
 
         <Grid item
           sx={{
-            // display: 'flex',
-            // alignItems: 'left',
-            // alignContent: 'space-around',
             bgcolor: 'background.paper',
             overflow: 'hidden',
             borderRadius: '12px',
@@ -83,10 +77,7 @@ const DateTimePicker = () => {
 
         
         <Grid item 
-          sx={{ 
-            // display: 'flex',
-            // alignItems: 'left',
-            // alignContent: 'space-around',
+          sx={{
             bgcolor: 'background.paper',
             overflow: 'hidden',
             borderRadius: '12px',

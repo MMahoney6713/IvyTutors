@@ -22,16 +22,6 @@ const pages = [
     href: '/account-security',
     title: 'Security',
   },
-  // {
-  //   id: 'notifications',
-  //   href: '/account-notifications',
-  //   title: 'Notifications',
-  // },
-  // {
-  //   id: 'billing',
-  //   href: '/account-billing',
-  //   title: 'Billing Information',
-  // },
 ];
 
 const AccountsPage = ({ children }) => {

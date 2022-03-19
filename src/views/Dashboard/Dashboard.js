@@ -30,11 +30,9 @@ const Dashboard = () => {
   const [availableTutors, setAvailableTutors] = useState([]);
   
   const { currentUser } = useContext(UserContext);
-  // console.log(currentUser);
 
   useEffect(async () => {
     try {
-      // console.log('dashboard load');
       let lessonsRes = await IvyTutorsApi.getLessons();
       setLessons(lessonsRes);
     } catch (err) {
@@ -43,8 +41,6 @@ const Dashboard = () => {
   },[]);
 
   
-
-
   return (
     <DashboardContext.Provider value={{ lessons, setLessons, dateTime, setDateTime, availableTutors, setAvailableTutors }}>
       

@@ -13,13 +13,6 @@ import {Link as RouterLink } from 'react-router-dom';
 
 const Topbar = ( {logout} ) => {
   const { currentUser } = useContext(UserContext);
-  // const theme = useTheme();
-  // const { mode } = theme.palette;
-  // const {
-  //   account: accountPages,
-  //   portfolio: portfolioPages,
-  //   blog: blogPages,
-  // } = pages;
 
   function loggedOutNav() {
     return (
@@ -59,13 +52,6 @@ const Topbar = ( {logout} ) => {
             to={'/dashboard'}
           />
         </Box>
-        {/* <Box marginLeft={4}>
-          <NavItem
-            title={'Account'}
-            id={'account'}
-            to={'/account'}
-          />
-        </Box> */}
         <Box marginLeft={4}>
           <Button
             component={RouterLink}
@@ -109,9 +95,6 @@ const Topbar = ( {logout} ) => {
       </Box>
       {currentUser ? loggedInNav() : loggedOutNav()}
       
-      {/* <Box sx={{ display: { xs: 'block', md: 'none' } }} alignItems={'center'}>
-        
-      </Box> */}
     </Box>
   );
 };

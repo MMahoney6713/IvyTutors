@@ -1,6 +1,6 @@
 # [Ivy Tutors](https://ivy-tutors.herokuapp.com/)
 
-Ivy Tutors is an initial web application designed to turn into a fully-functional, international English tutoring service. By providing an online tool that facilitates pain-free connecting between students with tutors and (in the soon-to-come future) easily managed payments, students and tutors are freed up to do more of the learning and teaching. 
+Ivy Tutors is a web application designed to turn into a fully-functional, international English tutoring service. By providing an online tool that facilitates pain-free connecting between students with tutors and (in the soon-to-come future) easily managed payments, students and tutors are freed up to do more of the learning and teaching. 
 
 This is the complete repository containing all code pertaining to the React front-end for the Ivy Tutors website, built as a Capstone project for Springboard. To access the website, please visit the link above. 
 
