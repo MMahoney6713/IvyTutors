@@ -12,8 +12,8 @@ const axios = require('axios');
 
 const { rowInitialState, timeToIdMap } = require('./rowSetup');
 
-// const BASE_URL = process.env.REACT_APP_BASE_URL || 'http://localhost:3001/availability';
-const BASE_URL = 'http://localhost:3001/availability';
+const BASE_URL = process.env.REACT_APP_BASE_URL ? `${process.env.REACT_APP_BASE_URL}/availability` : 'http://localhost:3001/availability';
+// const BASE_URL = 'http://localhost:3001/availability';
 
 const WeeklyCalendar = () => {
 
