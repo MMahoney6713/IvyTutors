@@ -30,7 +30,7 @@ const Tutor = ({ tutor }) => {
 
     setLessons(lessons => {
       let newLessons = [...lessons, lesson];
-      newLessons.sort((a,b) => a.time - b.time)
+      newLessons.sort((a,b) => a.time - b.time);
       return newLessons;
     });
 
@@ -42,8 +42,8 @@ const Tutor = ({ tutor }) => {
         }
       }
       return tutorsCopy;
-    })
-  }
+    });
+  };
 
 
   return (
@@ -207,7 +207,6 @@ Tutor.propTypes = {
   tutor: PropTypes.object,
   credits: PropTypes.number,
   media: PropTypes.string,
-  tutor: PropTypes.object,
   title: PropTypes.object,
 };
 

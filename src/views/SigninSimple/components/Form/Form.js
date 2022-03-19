@@ -2,6 +2,7 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
@@ -156,6 +157,10 @@ const Form = ({login}) => {
       </form>
     </Box>
   );
+};
+
+Form.propTypes = {
+  login: PropTypes.func
 };
 
 export default Form;

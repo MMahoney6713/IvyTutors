@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import Slider from 'react-slick';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+// import Typography from '@mui/material/Typography';
 // import Button from '@mui/material/Button';
 // import Card from '@mui/material/Card';
 // import CardMedia from '@mui/material/CardMedia';
@@ -23,7 +23,7 @@ const TutorsList = () => {
     defaultMatches: true,
   });
 
-	const { availableTutors } = useContext(DashboardContext);
+  const { availableTutors } = useContext(DashboardContext);
 
   const sliderOpts = {
     dots: true,
@@ -37,11 +37,11 @@ const TutorsList = () => {
 
   return (
     <Box maxWidth={{ xs: 420, sm: 620, md: 1 }} margin={'0 auto'}>
-			<Slider {...sliderOpts}>
-				{availableTutors.map((tutor, i) => (
-					<Tutor tutor={tutor} key={i}></Tutor>
-				))}
-			</Slider>
+      <Slider {...sliderOpts}>
+        {availableTutors.map((tutor, i) => (
+          <Tutor tutor={tutor} key={i}></Tutor>
+        ))}
+      </Slider>
     </Box>
   );
 };

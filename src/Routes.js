@@ -1,5 +1,6 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import PropTypes from 'prop-types';
 // import viewsRoutes from 'views/routes';
 
 import LandingPage from './views/LandingPage';
@@ -47,6 +48,11 @@ const Routes = ({login, signup}) => {
       <Route path="*" element={<Redirect to="/not-found" />} /> */}
     </Switch>
   );
+};
+
+Routes.propTypes = {
+  login: PropTypes.func,
+  signup: PropTypes.func
 };
 
 export default Routes;

@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import Box from '@mui/material/Box';
@@ -180,6 +181,10 @@ const Form = ({ signup }) => {
       </form>
     </Box>
   );
+};
+
+Form.propTypes = {
+  signup: PropTypes.func
 };
 
 export default Form;

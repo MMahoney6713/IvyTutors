@@ -19,7 +19,7 @@ const Hero = () => {
     <Box data-aos={isMd ? 'fade-right' : 'fade-up'}>
       <Box marginBottom={2}>
         <Typography variant="h2" color="text.primary" sx={{ fontWeight: 700 }}>
-          We make tutoring{' '}
+          Tutoring made {' '}
         </Typography>
         <Typography
           color={'primary'}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 // import { alpha, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -19,24 +19,14 @@ import DashboardContext from 'views/Dashboard/DashboardContext';
 
 
 const DateTimePicker = () => {
-  // let initialDateTime = new Date();
-  // initialDateTime.setDate(initialDateTime.getDate()+1);
-  // initialDateTime.setHours(13);
-  // initialDateTime.setMinutes(30);
-  // initialDateTime.setSeconds(0);
-  // Set initial time to tomorrow at 1:30pm
-  // const [date, setDate] = useState(new Date(initialDateTime));
-  // const [time, setTime] = useState(new Date(initialDateTime));
-  // const [availableTutors, setAvailableTutors] = useState([]);
 
   const {dateTime, setDateTime, availableTutors, setAvailableTutors} = useContext(DashboardContext);
 
   useEffect(async () => {
     let availabilityRes = await IvyTutorsApi.getAvailableTutors(dateTime);
     setAvailableTutors(availabilityRes);
-  }, [dateTime])
+  }, [dateTime]);
 
-  
 
   return (
     <Box

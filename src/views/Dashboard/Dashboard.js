@@ -36,11 +36,11 @@ const Dashboard = () => {
     try {
       // console.log('dashboard load');
       let lessonsRes = await IvyTutorsApi.getLessons();
-      setLessons(lessonsRes)
+      setLessons(lessonsRes);
     } catch (err) {
       console.error('App loadUserInfo: problem loading', err);
     }
-  },[])
+  },[]);
 
   
 
@@ -97,21 +97,21 @@ const Dashboard = () => {
           
         </>
         : 
-          <Container>
-            <Box marginBottom={1}>
-              <Typography
-                variant="h5"
-                align={'center'}
-                data-aos={'fade-up'}
-                gutterBottom
-                sx={{
-                  fontWeight: 700,
-                }}
-              >
+        <Container>
+          <Box marginBottom={1}>
+            <Typography
+              variant="h5"
+              align={'center'}
+              data-aos={'fade-up'}
+              gutterBottom
+              sx={{
+                fontWeight: 700,
+              }}
+            >
                 Loading
-              </Typography>
-            </Box>
-          </Container>
+            </Typography>
+          </Box>
+        </Container>
       }
     </DashboardContext.Provider>
   );

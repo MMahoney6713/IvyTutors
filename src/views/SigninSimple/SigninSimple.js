@@ -3,6 +3,7 @@ import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import PropTypes from 'prop-types';
 
 // import Main from 'layouts/Main';
 import Container from 'components/Container';
@@ -61,6 +62,10 @@ const SigninSimple = ({ login }) => {
       </Box>
     </>
   );
+};
+
+SigninSimple.propTypes = {
+  login: PropTypes.func
 };
 
 export default SigninSimple;

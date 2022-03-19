@@ -120,6 +120,7 @@ Topbar.propTypes = {
   onSidebarOpen: PropTypes.func,
   pages: PropTypes.object,
   colorInvert: PropTypes.bool,
+  logout: PropTypes.func
 };
 
 export default Topbar;

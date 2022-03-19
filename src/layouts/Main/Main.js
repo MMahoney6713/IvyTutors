@@ -81,6 +81,7 @@ Main.propTypes = {
   children: PropTypes.node,
   colorInvert: PropTypes.bool,
   bgcolor: PropTypes.string,
+  logout: PropTypes.func
 };
 
 export default Main;

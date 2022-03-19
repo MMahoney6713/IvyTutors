@@ -1,8 +1,9 @@
-import React, { useContext } from "react";
-import { Route, Redirect } from "react-router-dom";
-import UserContext from "./UserContext";
+import React, { useContext } from 'react';
+import { Route, Redirect } from 'react-router-dom';
+import UserContext from './UserContext';
+import PropTypes from 'prop-types';
 
-/** "Higher-Order Component" for private routes.
+/** 'Higher-Order Component' for private routes.
  *
  * In routing component, use these instead of <Route ...>. This component
  * will check if there is a valid current user and only continues to the
@@ -16,14 +17,20 @@ function PrivateRoute({ exact, path, children }) {
 
 
   if (!currentUser) {
-    return <Redirect to="/signin" />;
+    return <Redirect to='/signin' />;
   }
 
   return (
-      <Route exact={exact} path={path}>
-        {children}
-      </Route>
+    <Route exact={exact} path={path}>
+      {children}
+    </Route>
   );
 }
+
+PrivateRoute.propTypes = {
+  exact: PropTypes.any,
+  path: PropTypes.any,
+  children: PropTypes.any
+};
 
 export default PrivateRoute;

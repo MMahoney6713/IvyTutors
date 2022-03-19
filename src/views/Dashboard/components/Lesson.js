@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
@@ -12,7 +12,7 @@ import CardContent from '@mui/material/CardContent';
 // import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 // import { colors } from '@mui/material';
-import DashboardContext from '../DashboardContext';
+// import DashboardContext from '../DashboardContext';
 
 
 const Lesson = ({ lesson }) => {
@@ -20,10 +20,10 @@ const Lesson = ({ lesson }) => {
   // const isMd = useMediaQuery(theme.breakpoints.up('md'), {
   //   defaultMatches: true,
   // });
-  let {dateTime, setDateTime, availableTutors, setAvailableTutors} = useContext(DashboardContext);
+  // let {dateTime, setDateTime, availableTutors, setAvailableTutors} = useContext(DashboardContext);
 
   let time = new Date(lesson.time);
-  time.setUTCMinutes(time.getUTCMinutes() - time.getTimezoneOffset())
+  time.setUTCMinutes(time.getUTCMinutes() - time.getTimezoneOffset());
   // console.log(time);
   let timeString = time.toString().slice(0,21);
 
