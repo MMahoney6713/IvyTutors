@@ -4,7 +4,7 @@ Ivy Tutors is a web application designed to turn into a fully-functional, intern
 
 This is the complete repository containing all code pertaining to the React front-end for the Ivy Tutors website, built as a Capstone project for Springboard. To access the website, please visit the link above. 
 
-For details on the Backend of the application, please visit the [Ivy Tutors Backend Repository](https://github/com/MMahoney6713/IvyTutorsBackend)
+For details on the Backend of the application, please visit the [Ivy Tutors Backend Repository](https://github.com/MMahoney6713/IvyTutorsBackend)
 
 Hosted on Heroku.
 
