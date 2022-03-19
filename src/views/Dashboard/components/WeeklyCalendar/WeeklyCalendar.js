@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext} from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 
 import UserContext from 'auth/UserContext';
-// import IvyTutorsApi from 'api/api';
+import IvyTutorsApi from 'api/api';
 
 
 import _ from 'lodash';
@@ -12,6 +12,7 @@ const axios = require('axios');
 
 const { rowInitialState, timeToIdMap } = require('./rowSetup');
 
+// const headers = { Authorization: `Bearer ${IvyTutorsApi.token}` };
 const BASE_URL = process.env.REACT_APP_BASE_URL ? `${process.env.REACT_APP_BASE_URL}/availability` : 'http://localhost:3001/availability';
 // const BASE_URL = 'http://localhost:3001/availability';
 
@@ -41,7 +42,7 @@ const WeeklyCalendar = () => {
 
     let [year, month, day, tz] = [firstDay.getFullYear(), firstDay.getMonth(), firstDay.getDate(), firstDay.getTimezoneOffset()];
 
-    let availabilityData = await axios.get(`${BASE_URL}/${tutor}?year=${year}&month=${month}&day=${day}&tz=${tz}`);
+    let availabilityData = await axios.get(`${BASE_URL}/${tutor}?year=${year}&month=${month}&day=${day}&tz=${tz}`, { headers: { Authorization: `Bearer ${IvyTutorsApi.token}` }});
     
     for (let timeData of availabilityData.data.availability) {
       let rowId = timeToIdMap[timeData.time];
@@ -107,9 +108,9 @@ const WeeklyCalendar = () => {
     try {
       let availabilityRes;
       if (valToSet) {
-        availabilityRes = await axios.post(BASE_URL, {tutor: tutor, time: time});
+        availabilityRes = await axios.post(BASE_URL, {tutor: tutor, time: time}, { headers: { Authorization: `Bearer ${IvyTutorsApi.token}` }});
       } else {
-        availabilityRes = await axios.delete(`${BASE_URL}/${tutor}/${timeStringWithOffset}`);
+        availabilityRes = await axios.delete(`${BASE_URL}/${tutor}/${timeStringWithOffset}`, { headers: { Authorization: `Bearer ${IvyTutorsApi.token}` }});
       }
       
       if (availabilityRes);
