@@ -1,9 +1,13 @@
 {
-  "name": "thefront-js--react-scripts",
-  "author": "maccarian",
-  "email": "hi@maccarianagency.com",
+  "name": "ivytutors",
+  "author": "mahoney",
+  "email": "michael.mahoney3315@gmail.com",
   "version": "4.6.0",
   "private": true,
+  "engines": {
+    "npm": "8.1.0",
+    "node": "16.13.0"
+  },
   "scripts": {
     "start": "react-app-rewired start",
     "build": "cross-env GENERATE_SOURCEMAP=false react-app-rewired build",
