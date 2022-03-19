@@ -1,89 +1,49 @@
-# [theFront - Multipurpose Template + UI Kit](https://thefront.maccarianagency.com/)
+# [Ivy Tutors](https://ivy-tutors.herokuapp.com/)
 
-MUI & ReactJS based Landing Pages Kit made with [MUI's](https://mui.com/?ref=maccarian-agency) components, [React](https://reactjs.org/?ref=maccarian-agency). It supports [create-react-app](https://facebook.github.io/create-react-app/?ref=maccarian-agency) build-tools (react-scripts), [NextJS](https://nextjs.org/?ref=maccarian-agency), [GatsbyJS](https://www.gatsbyjs.com/?ref=maccarian-agency) and Typescript to boost your app development process!
-A professional React Kit that comes with plenty of ready-to-use MUI components that will help you to build faster & beautiful fontend pages. Each component is fully customizable, responsive and easy to integrate.
+Ivy Tutors is an initial web application designed to turn into a fully-functional, international English tutoring service. By providing an online tool that facilitates pain-free connecting between students with tutors and (in the soon-to-come future) easily managed payments, students and tutors are freed up to do more of the learning and teaching. 
+
+This is the complete repository containing all code pertaining to the React front-end for the Ivy Tutors website, built as a Capstone project for Springboard. To access the website, please visit the link above. 
+
+For details on the Backend of the application, please visit the [Ivy Tutors Backend Repository](https://github/com/MMahoney6713/IvyTutorsBackend)
+
+Hosted on Heroku.
 
 ## Built with
 
-- React
-- MUI
-- React Scripts
-- NextJS
-- GatsbyJS
-- Typescript
-- Figma & Sketch
+- React / Create React App
+- Page layout and design/template created by Maccarian at https://mui.com/store/items/the-front-landing-page/, and significantly adapted for use in this single-page application. 
+- Material UI components
 
-## Features
+## User Flow Considerations
 
-theFront landing page examples can be used out of the box, but since they’re built on flexible components, you can also create new pages all your own with ease. Copy-paste a section here, a component there, switch up a few variables, and you have an entirely new landing!
+#### Common User Flow:
+All users will start on the landing page. Further updates to the public front end of the site will be added in the future, including Pricing, About, and other common website pages. 
 
-- More than 45 pages
-- 300+ component reusable compositions
-- create-react-app & react-scripts support
-- NextJS and server side rendering support
-- GatsbyJS and server side rendering support
-- Typescript support
-- Dark mode support
-- Image lazy loading support
-- Animated sections on scroll
-- Swiper support
-- Fully responsive on all modern browsers
-- Figma and Sketch design files (available in Standard Plus & Extended licences)
-- Rich documentation with code samples and parameters/options
-- Free customer support
-- Free updates
+Users are able to sign in or sign up, using the navigation bar. For now, students can create an account and immediately access the Student Dashboard, but tutors will need to have their account created by an admin first following review and acceptance to be a tutor.
 
-## Learn more
+#### Student User Flow:
+After signup/signin, students will be redirected to the student dashboard. This section contains a list of upcoming scheduled lessons and the tutors that they will be meeting with, as well as an area for scheduling a new lesson. 
 
-- [Launch a live demo](https://thefront.maccarianagency.com)
-- [Documentation & Quick Start](https://thefront.maccarianagency.com/docs/introduction)
+Future updates will allow the student to manage their upcoming scheduled lessons (request changes, cancel, etc.) as well as access links to a video conference tool which will enable the tutoring session. 
 
-## Design Highlights
+For scheduling new lessons, a student will select a date and a time (given in 30 minute increments) for which to find available tutors. The application will list all tutors available at that time and the student can 'book' that tutor, removing the tutor from that time-slot and adding the lesson to both the student's and the tutor's pages. Future iterations will allow tutors to be able to first approve this booking. 
 
-theFront was designed as a rich system from the start, which is reflected in both the end result and the original design.
+#### Tutor User Flow:
+Much the same as the student, the tutor is redirected to the tutor dashboard where they see their upcoming lessons (future updates will include the information of the student rather than the lessons list showing only tutor information) as well as a weekly calendar showing their availabilities.
 
-- 15 Figma and Sketch files are available
-- Beautiful, modern style flexible enough to suit most brands
-- All images are included with a free-to-use license
-- Icon set provided by Font Awesome Kit
+For a tutor, once an availability is set by clicking on the weekly calendar, this makes them available for a student to book a lesson with them from the student dashboard. 
 
-The following are the pages that have Figma and Sketch design implementation:
+## Feature Highlights
 
-- [Job Listing](https://thefront.maccarianagency.com/job-listing)
-- [Rental](https://thefront.maccarianagency.com/rental)
-- [E-commerce](https://thefront.maccarianagency.com/e-commerce)
-- [Cloud Hosting](https://thefront.maccarianagency.com/cloud-hosting)
-- [Logistics](https://thefront.maccarianagency.com/logistics)
-- [Portfolio](https://thefront.maccarianagency.com/portfolio-page)
-- [Career Listing](https://thefront.maccarianagency.com/career-listing-minimal)
-- [Career Opening](https://thefront.maccarianagency.com/career-opening)
-- [Help Center](https://thefront.maccarianagency.com/help-center)
-- [Company About](https://thefront.maccarianagency.com/about)
-- [Company Pricing](https://thefront.maccarianagency.com/pricing)
-- [Blog Newsroom](https://thefront.maccarianagency.com/blog-newsroom)
-- [Blog Article](https://thefront.maccarianagency.com/blog-article)
-- [Company Contact](https://thefront.maccarianagency.com/contact-page)
-- [Account Page](https://thefront.maccarianagency.com/account/general)
+#### The Dashboard
+Depending on if the user has a 'true' isTutor property, the dashboard will load either a date-time picker and booking section (for the student) or a weekly calendar and availability setting section (for the tutor). This is accomplished by using React's useContext hook, allowing the user object to be passed throughout the logged in portions of the website and allowing for user-specific options to be loaded, such as the dashboard. Here, the card used to display tutor information on the lessons list is reused also to display the list of available tutors for lesson-booking. 
 
-## Quick start
+#### The Weekly Calendar / Availability Selection
+One of the core functionalities for this application is a tutor's ability to set their availability with ease, and for this date-time object to be properly stored in a database so that a student can accurately select the tutor based on this. By using the MaterialUI DataGrid component, a lot of the functionality that I needed was available through the DataGrid API - being able to set 'onClick' callbacks for when a cell is clicked, for example, is an out-of-the-box feature with DataGrid. 
 
-- Install dependencies: `yarn install`
-- Start the server: `yarn run start`
-- Build on production: `yarn run build`
+In order to manage the data transfer between the backend and the frontend, I developed a 'rows' object which defines all 48 rows of the DataGrid (24 hours in a day, each split into 30 minute increments => 24*2=48). The 'time' string (in the format of 'hhmm') is the key for the row, and each weekday represents an index in the array stored as this time key's value. The server sends requested data in this format based on the week of interest, and the DataGrid is populated by finding the corresponding key in the 'rows' object matching the time string. For example: For a given week, at 1:30pm, tutor B has availability on Tuesday and Wednesday. The resulting object from the server is {'1330': [f, t, t, f, f, f, f]}, indicating that we can add this array into the 'rows' object for the datagrid at row of '1330'. 
 
-## MUI Documentation
 
-The full documentation for the React Material Kit can be found [here](https://mui.com?ref=maccarian-agency).
 
-## Free Updates and Support
 
-No matter how well documented and built something is, sometimes you just need a little help! That’s why we make ourselves available to help you anytime, just contact our [support](hi@maccarianagency.com) email. We’re also planning tons of updates! In addition to keeping theFront up to date with MUI's core and any necessary patches, we’ll be adding new features regularly over the coming months!
 
-- [Contact us via email](hi@maccarianagency.com)
-
-## Contact Us
-
-- Email Us: hi@maccarianagency.com
-- [Follow us on Linkedin](https://www.linkedin.com/company/maccarian)
-- [Follow us on Instagram](https://www.instagram.com/maccarian/)
-- [Follow us on Facebook](https://facebook.com/maccarian.agency/)
