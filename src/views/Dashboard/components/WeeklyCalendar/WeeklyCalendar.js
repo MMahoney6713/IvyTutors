@@ -35,11 +35,15 @@ const WeeklyCalendar = () => {
 
     let newRows = _.cloneDeep(rowInitialState);
 
-    let [year, month, day, tz] = [firstDay.getFullYear(), firstDay.getMonth(), firstDay.getDate(), firstDay.getTimezoneOffset()];
-
-    let availabilityData = await axios.get(`${BASE_URL}/${tutor}?year=${year}&month=${month}&day=${day}&tz=${tz}`, { headers: { Authorization: `Bearer ${IvyTutorsApi.token}` }});
+    // let [year, month, day, tz] = [firstDay.getFullYear(), firstDay.getMonth(), firstDay.getDate(), firstDay.getTimezoneOffset()];
     
-    for (let timeData of availabilityData.data.availability) {
+    let time = firstDay.toString();
+    let availabilityData = await IvyTutorsApi.getTutorAvailability(tutor, time);
+
+    // let availabilityData = await axios.get(`${BASE_URL}/${tutor}?year=${year}&month=${month}&day=${day}&tz=${tz}`, { headers: { Authorization: `Bearer ${IvyTutorsApi.token}` }});
+    
+    // for (let timeData of availabilityData.data.availability) {
+    for (let timeData of availabilityData) {
       let rowId = timeToIdMap[timeData.time];
       for (const [key, value] of Object.entries(timeData)) {
         if (key !== timeHeaderForUser) {

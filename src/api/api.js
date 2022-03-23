@@ -57,8 +57,22 @@ class IvyTutorsApi {
 
   /** Get a tutor's weekly availability */
 
-  static async getTutorAvailability(tutor) {
-    let res = await this.request(`availability/${tutor}`);
+  static async getTutorAvailability(tutor, time) {
+    let res = await this.request(`availability/${tutor}/${time}`);
+    return res.availability;
+  }
+
+  /** Add tutor's weekly availability */
+
+  static async addTutorAvailability(tutor) {
+    let res = await this.request(`availability/${tutor}`, 'post');
+    return res.availabilities;
+  }
+
+  /** Delete tutor's weekly availability */
+
+  static async deleteTutorAvailability(tutor) {
+    let res = await this.request(`availability/${tutor}`, 'delete');
     return res.availabilities;
   }
 
