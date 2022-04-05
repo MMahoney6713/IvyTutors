@@ -24,7 +24,6 @@ import jwt from 'jsonwebtoken';
 /** IvyTutors application.
  *
  * - infoLoaded: has user data been pulled from API?
- *   (this manages spinner for 'loading...')
  *
  * - currentUser: user obj from API. This becomes the canonical way to tell
  *   if someone is logged in. This is passed around via context throughout app.
@@ -40,7 +39,6 @@ import jwt from 'jsonwebtoken';
 const App = () => {
 
   const [infoLoaded, setInfoLoaded] = useState(false);
-  // const [applicationIds, setApplicationIds] = useState(new Set([]));
   const [currentUser, setCurrentUser] = useState(null);
   const [token, setToken] = useLocalStorage(TOKEN_STORAGE_ID);
 
@@ -49,7 +47,6 @@ const App = () => {
   // the value of the token is a dependency for this effect.
 
   useEffect(function loadUserInfo() {
-    console.debug('App useEffect loadUserInfo', 'token=', token);
 
     async function getCurrentUser() {
       if (token) {
@@ -59,7 +56,6 @@ const App = () => {
           IvyTutorsApi.token = token;
           let currentUser = await IvyTutorsApi.getCurrentUser(email);
           setCurrentUser(currentUser);
-          // setApplicationIds(new Set(currentUser.applications));
         } catch (err) {
           console.error('App loadUserInfo: problem loading', err);
           setCurrentUser(null);
@@ -68,9 +64,6 @@ const App = () => {
       setInfoLoaded(true);
     }
 
-    // set infoLoaded to false while async getCurrentUser runs; once the
-    // data is fetched (or even if an error happens!), this will be set back
-    // to false to control the spinner.
     setInfoLoaded(false);
     getCurrentUser();
   }, [token]);
@@ -83,9 +76,7 @@ const App = () => {
 
   /** Handles site-wide signup.
    *
-   * Automatically logs them in (set token) upon signup.
-   *
-   * Make sure you await this function and check its return value!
+   * Automatically logs user in (set token) upon signup.
    */
   async function signup(signupData) {
     try {
@@ -99,8 +90,6 @@ const App = () => {
   }
 
   /** Handles site-wide login.
-   *
-   * Make sure you await this function and check its return value!
    */
   async function login(loginData) {
     try {

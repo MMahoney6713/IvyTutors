@@ -1,10 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react';
-// import { alpha, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-// import Grid from '@mui/material/Grid';
-// import Card from '@mui/material/Card';
-// import List from '@mui/material/List';
-// import ListItem from '@mui/material/ListItem';
 import Typography from '@mui/material/Typography';
 
 import Container from './components/Container';

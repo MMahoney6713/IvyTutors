@@ -31,8 +31,11 @@ class IvyTutorsApi {
     }
   }
 
+
+
   // Individual API routes
 
+  
   /** Get the current user. */
 
   static async getCurrentUser(email) {
@@ -40,12 +43,8 @@ class IvyTutorsApi {
     return res.user;
   }
 
-  /** Get Lessons */
+  
 
-  static async getLessons() {
-    let res = await this.request('lessons');
-    return res.lessons;
-  }
 
   /** Get Available tutors at time */
 
@@ -53,7 +52,6 @@ class IvyTutorsApi {
     let res = await this.request(`availability/all/${time}`);
     return res.availabilities;
   }
-
 
   /** Get a tutor's weekly availability */
 
@@ -77,12 +75,24 @@ class IvyTutorsApi {
   }
 
 
+
+
+  /** Get Lessons */
+
+  static async getLessons() {
+    let res = await this.request('lessons');
+    return res.lessons;
+  }
+
   /** Add Lessons */
 
   static async bookLesson(tutor, student, time) {
     let res = await this.request('lessons', {tutor, student, time}, 'post');
     return res.lesson;
   }
+
+
+
 
   /** Get token for login from username, password. */
 
